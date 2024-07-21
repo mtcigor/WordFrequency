@@ -16,10 +16,12 @@ typedef struct Word{
     
 }Word;
 
+void AddOrIncrement(char* word, bool* error);
+
 FileCounted* InitializeCounter(int size, bool* error);
 
 Word* InitializeWord(bool* error);
 
-bool FreeWord(Word* word);
+void FreeWord(Word* word);
 
-bool FreeFileCouted(FileCounted* file);
+void FreeFileCouted(FileCounted* file);

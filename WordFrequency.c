@@ -7,20 +7,26 @@
 #include <stdbool.h>
 #include <string.h>
 #include <malloc.h>
+
 #include "HashStuff.h"
 #include "WordsFrequency.h"
 
+//Use something else than void for the type of function
+void AddOrIncrement(char* word, bool* error){
+    int ASCII;
+    for (int i = 0; word[i] != '\0'; i++) {
+        ASCII += (int)word[i]; //Convert to ASCII each char
+    }
+
+}
+
 // size - The ammount of words in the text file
 // error - Pointer dereference to set the error flag 
-FileCounted* InitializeCounter(int size, bool* error) {
-    *error = false;
+FileCounted* InitializeCounter(int size) {
 
     // Allocate memory for FileCounted structure and the flexible array member in one step
     FileCounted* aux = (FileCounted*)malloc(sizeof(FileCounted) + size * sizeof(Word*));
-    if (aux == NULL) {
-        *error = true;
-        return NULL;
-    }
+    if (aux == NULL) return NULL;
 
     aux->numberOfWords = size;
     for (int i = 0; i < size; i++) {
@@ -33,20 +39,15 @@ FileCounted* InitializeCounter(int size, bool* error) {
 }
 
 // error - Pointer dereference to set the error flag
-Word* InitializeWord(bool* error){
+Word* InitializeWord(){
     Word* aux = (Word*)malloc(sizeof(Word));
-    if(aux == NULL){
-        *error=true;
-        return NULL;
-    }
+    if(aux == NULL) return NULL;
 
     return aux;
 }
 
 // word - Word pointer to free it in the memory
-bool FreeWord(Word* word){
-    bool error = true;
-
+void FreeWord(Word* word){
     // while(word != NULL){
     //     Word* aux;
     //     if(word->next != NULL) aux = word->next;
@@ -58,28 +59,21 @@ bool FreeWord(Word* word){
         free(word->next); //Pode dar erro
         free(word);
     }
-    
-    error = false;
-    return error;
 }
 
 //file - FileCounted pointer to free it in the memory
-bool FreeFileCouted(FileCounted* file){
-    bool error = true;
+void FreeFileCouted(FileCounted* file){
     if(file != NULL){
         for(int i = 0; i < file->numberOfWords; i++){
             Word* current = file->words[i];
             while (current != NULL)
             {
                 Word* next = current->next;
-                error = FreeWord(current);
-                if(error == true) return true; //Qualquer erro durante a execução da função a mesma aborta
+                FreeWord(current); //See possible errors
                 current = next;
             }
             
         }
         free(file);
-        error = false;
     }
-    return error;
 }
