@@ -16,11 +16,11 @@ typedef struct Word{
     
 }Word;
 
-void AddOrIncrement(char* word, bool* error);
+void AddOrIncrement(char* word);
 
-FileCounted* InitializeCounter(int size, bool* error);
+FileCounted* InitializeCounter(int size);
 
-Word* InitializeWord(bool* error);
+Word* InitializeWord();
 
 void FreeWord(Word* word);
 

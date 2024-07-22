@@ -17,11 +17,11 @@ void AddOrIncrement(char* word, bool* error){
     for (int i = 0; word[i] != '\0'; i++) {
         ASCII += (int)word[i]; //Convert to ASCII each char
     }
+    //Use a find Hash first
 
 }
 
 // size - The ammount of words in the text file
-// error - Pointer dereference to set the error flag 
 FileCounted* InitializeCounter(int size) {
 
     // Allocate memory for FileCounted structure and the flexible array member in one step
@@ -38,7 +38,6 @@ FileCounted* InitializeCounter(int size) {
     return aux;
 }
 
-// error - Pointer dereference to set the error flag
 Word* InitializeWord(){
     Word* aux = (Word*)malloc(sizeof(Word));
     if(aux == NULL) return NULL;
