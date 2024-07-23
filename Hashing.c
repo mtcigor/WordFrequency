@@ -8,48 +8,52 @@
 #include <stdio.h>
 #include <malloc.h>
 
-#include "WordsFrequency.h"
+#include "WordFrequency.h"
 #include "HashStuff.h"
 
 //Only to add, not to increment
 Word* AddHash(FileCounted* file, int ASCII, int* errorCode){
     if(file == NULL){
-        errorCode=2;
+        *errorCode=2;
         return NULL;
     }
 
     Word* aux = FindWordHash(file, ASCII);
     //There is no word in the chosen hash
     if(aux == NULL){
+        int hash = GenerateHash(ASCII, file->numberOfWords);
+        aux = file->words[hash];
         aux->frequencies=1;
         aux->WordASCII=ASCII;
-        errorCode = 0; //No error
+        *errorCode = 0; //No error
         return aux;
     }
     //The word already exists
     if(aux->WordASCII == ASCII){
-        errorCode = 1; //Already exists (best to increment)
+        *errorCode = 1; //Already exists (best to increment)
         return NULL;
     }
     //There is another word in the same hash, colliding
     if(aux->frequencies > 0 && aux->WordASCII > -1){
         Word* temp = ColissionHandlingHash(aux, ASCII);
         if(temp == NULL){
-            errorCode=2; //Failed to add
+            *errorCode=2; //Failed to add
             return NULL;
         }
         errorCode=0;
         return temp;
     }
+    *errorCode=2;
+    return NULL;
     
 }
 
 Word* ColissionHandlingHash(Word* current, int ASCII){
-    current->next = (Word*)malloc(sizeof(Word*));
+    current->next = (Word*)malloc(sizeof(Word));
     if(current->next == NULL) return NULL;
     Word* aux = current->next;
     aux->frequencies=1;
-    aux->WordASCII;
+    aux->WordASCII = ASCII;
     return aux;
 }
 

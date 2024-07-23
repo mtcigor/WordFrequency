@@ -9,10 +9,10 @@
 #include <malloc.h>
 
 #include "HashStuff.h"
-#include "WordsFrequency.h"
+#include "WordFrequency.h"
 
 //Use something else than void for the type of function
-void AddOrIncrement(char* word, bool* error){
+void AddOrIncrement(char* word){
     int ASCII;
     for (int i = 0; word[i] != '\0'; i++) {
         ASCII += (int)word[i]; //Convert to ASCII each char
@@ -23,16 +23,23 @@ void AddOrIncrement(char* word, bool* error){
 
 // size - The ammount of words in the text file
 FileCounted* InitializeCounter(int size) {
-
-    // Allocate memory for FileCounted structure and the flexible array member in one step
-    FileCounted* aux = (FileCounted*)malloc(sizeof(FileCounted) + size * sizeof(Word*));
+    FileCounted* aux = (FileCounted*)malloc(sizeof(FileCounted));
     if (aux == NULL) return NULL;
 
     aux->numberOfWords = size;
     for (int i = 0; i < size; i++) {
-        aux->words[i]->frequencies=0;
-        aux->words[i]->WordASCII=-1;
-        aux->words[i]->next=NULL;
+        aux->words[i] = (Word*)malloc(sizeof(Word));
+        if (aux->words[i] == NULL) {
+            for (int j = 0; j < i; j++) { //If needed elsewhere make this free memory words loop a function
+                free(aux->words[j]);
+            }
+            free(aux);
+            return NULL;
+        }
+        
+        aux->words[i]->frequencies = 0;
+        aux->words[i]->WordASCII = -1;
+        aux->words[i]->next = NULL;
     }
 
     return aux;
