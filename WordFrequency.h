@@ -19,7 +19,7 @@ typedef struct Word{
     
 }Word;
 
-void AddOrIncrement(char* word);
+Word* AddOrIncrement(FileCounted* file, char* word);
 
 FileCounted* InitializeCounter(int size);
 

@@ -31,7 +31,7 @@ Word* AddHash(FileCounted* file, int ASCII, int* errorCode){
     //The word already exists
     if(aux->WordASCII == ASCII){
         *errorCode = 1; //Already exists (best to increment)
-        return NULL;
+        return aux;
     }
     //There is another word in the same hash, colliding
     if(aux->frequencies > 0 && aux->WordASCII > -1){

@@ -32,19 +32,45 @@ void ToLowercase(char *word) {
     }
 }
 
-Word* LoadFile(const char* filename, bool* error){
+int CountAllWords(const char* filename){
+    FILE* file = fopen(filename, "r");
+    if(file == NULL) return -1;
+
+    int wordCount = 0;
+    char *wordAux;
+    while(fscanf(file, "%s", wordAux) == 1){
+        wordCount++;
+    }
+
+    free(wordAux);
+    fclose(file);
+    return wordCount;
+}
+
+FileCounted* LoadFile(const char* filename, bool* error){
     FILE* file = fopen(filename, "r");
     if(file == NULL){
         *error = true;
         return NULL;
     }
 
-    char *wordAux;
+    int size;
+    size = CountAllWords(filename);
+    FileCounted* file = InitializeCounter(size);
+    if(file == NULL){
+        *error = true;
+        return NULL;
+    }
+    char* wordAux;
     while(fscanf(file, "%s", wordAux) == 1){
         //Sanitization
         RemovePunctuation(wordAux);
         ToLowercase(wordAux);
-
-        //To do - add the word to FileCounted word struct
+        Word* word = AddOrIncrement(file, wordAux);
+        if(word == NULL){
+            *error=true;
+            return file;
+        }
     }
+    return file;
 }

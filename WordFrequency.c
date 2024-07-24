@@ -12,12 +12,25 @@
 #include "WordFrequency.h"
 
 //Use something else than void for the type of function
-void AddOrIncrement(char* word){
+Word* AddOrIncrement(FileCounted* file, char* word){
     int ASCII;
     for (int i = 0; word[i] != '\0'; i++) {
         ASCII += (int)word[i]; //Convert to ASCII each char
     }
-    //Use a find Hash first
+
+    int* error = (int*)malloc(sizeof(int));
+    if (error == NULL) {
+        return NULL;
+    }
+    *error = 0;
+    Word* aux = AddHash(file, ASCII, error);
+    if(*error == 1){ //already exists
+        aux->frequencies++;
+    }
+    if(*error == 2){ //Failed to add
+        return NULL;
+    }
+    return aux;
 
 }
 
