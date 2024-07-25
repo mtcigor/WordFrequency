@@ -11,8 +11,17 @@
 
 #include "WordFrequency.h"
 #include "HashStuff.h"
+#include "Files.h"
 
 int main (){
-    
+    bool* error = (bool*)malloc(sizeof(bool));
+    if(error == NULL){
+        printf("Failed to allocate memory to error pointer\n");
+        return 1;
+    }
+    FileCounted* file = LoadFile("text.txt", error);
+    if(*error == true){
+        printf("Failed to load the file\n");
+    }
     return 0;
 }

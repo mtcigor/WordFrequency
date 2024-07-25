@@ -56,7 +56,7 @@ FileCounted* LoadFile(const char* filename, bool* error){
 
     int size;
     size = CountAllWords(filename);
-    FileCounted* file = InitializeCounter(size);
+    FileCounted* fileCounted = InitializeCounter(size);
     if(file == NULL){
         *error = true;
         return NULL;
@@ -66,11 +66,11 @@ FileCounted* LoadFile(const char* filename, bool* error){
         //Sanitization
         RemovePunctuation(wordAux);
         ToLowercase(wordAux);
-        Word* word = AddOrIncrement(file, wordAux);
+        Word* word = AddOrIncrement(fileCounted, wordAux);
         if(word == NULL){
             *error=true;
-            return file;
+            return fileCounted;
         }
     }
-    return file;
+    return fileCounted;
 }
