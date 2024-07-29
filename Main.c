@@ -23,5 +23,6 @@ int main (){
     if(*error == true){
         printf("Failed to load the file\n");
     }
+    FreeFileCouted(file);
     return 0;
 }

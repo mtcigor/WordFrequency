@@ -15,7 +15,7 @@
 
 
 
-void* RemovePunctuation(char* word){
+void RemovePunctuation(char* word){
     char *aux = word, *result = word; //
     while (*aux) {
         if (isalpha((unsigned char)*aux) || *aux == ' ') {
@@ -37,36 +37,45 @@ int CountAllWords(const char* filename){
     if(file == NULL) return -1;
 
     int wordCount = 0;
-    char *wordAux;
-    while(fscanf(file, "%s", wordAux) == 1){
+    char wordAux[256];
+    while(fscanf(file, "%255s", wordAux) == 1){
         wordCount++;
     }
 
-    free(wordAux);
     fclose(file);
     return wordCount;
 }
 
 FileCounted* LoadFile(const char* filename, bool* error){
-    FILE* file = fopen(filename, "r");
-    if(file == NULL){
-        *error = true;
-        return NULL;
-    }
-
+    
     int size;
     size = CountAllWords(filename);
     FileCounted* fileCounted = InitializeCounter(size);
-    if(file == NULL){
+    FILE* file = fopen(filename, "r");
+    if(fileCounted == NULL){
         *error = true;
         return NULL;
     }
-    char* wordAux;
-    while(fscanf(file, "%s", wordAux) == 1){
+    if(file == NULL){
+        FreeFileCouted(fileCounted);
+        *error = true;
+        return NULL;
+    }
+    char wordAux[255];
+    while(fscanf(file, "%255s", wordAux) == 1){
         //Sanitization
-        RemovePunctuation(wordAux);
-        ToLowercase(wordAux);
-        Word* word = AddOrIncrement(fileCounted, wordAux);
+        printf("%lu\n", strlen(wordAux));
+        char* wordPointer = (char*)malloc(strlen(wordAux)*sizeof(char));
+        if(wordPointer == NULL){
+            *error = true;
+            return NULL;
+        }
+        printf("foi0\n");
+        RemovePunctuation(wordPointer);
+        printf("foi1\n");
+        ToLowercase(wordPointer);
+        
+        Word* word = AddOrIncrement(fileCounted, wordPointer);
         if(word == NULL){
             *error=true;
             return fileCounted;
