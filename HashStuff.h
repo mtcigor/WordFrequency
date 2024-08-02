@@ -15,6 +15,6 @@ Word* ColissionHandlingHash(Word* current, char* word);
 
 Word* FindWord(FileCounted* file, char* word);
 
-int ComputeHash(char* word, int arraySize);
+unsigned int ComputeHash(char* word, int arraySize);
 
 #endif // HASH_STUFF_H

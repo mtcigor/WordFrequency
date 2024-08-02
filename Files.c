@@ -34,14 +34,13 @@ void ToLowercase(char *word) {
 }
 
 int CountAllWords(const char* filename) {
-    FILE* file = NULL;
-    int err = fopen_s(&file, filename, "r");
-    if (err != 0 || file == NULL) return -1;
+    FILE* file = fopen(filename, "r");
+    if (file == NULL) return -1;
 
     int wordCount = 0;
     char wordAux[BUFFER];
 
-    while (fscanf_s(file, "%255s", wordAux, (unsigned)sizeof(wordAux)) == 1) {
+    while (fscanf(file, "%255s", wordAux) == 1) {
         wordCount++;
     }
 
@@ -60,15 +59,15 @@ FileCounted* LoadFile(const char* filename, bool* error) {
         return NULL;
     }
 
-    err = fopen_s(&file, filename, "r");
-    if (err != 0 || file == NULL) {
+    file = fopen(filename, "r");
+    if (file == NULL) {
         FreeFileCouted(fileCounted);
         *error = true;
         return NULL;
     }
 
     char wordAux[BUFFER];
-    while (fscanf_s(file, "%255s", wordAux, (unsigned)sizeof(wordAux)) == 1) {
+    while (fscanf(file, "%255s", wordAux) == 1) {
         char* wordPointer = (char*)malloc((strlen(wordAux) + 1) * sizeof(char));
         if (wordPointer == NULL) {
             *error = true;
@@ -76,7 +75,7 @@ FileCounted* LoadFile(const char* filename, bool* error) {
             return fileCounted;
         }
 
-        strcpy_s(wordPointer, strlen(wordAux) + 1, wordAux);
+        strcpy(wordPointer, wordAux);
         // Sanitization
         RemovePunctuation(wordPointer);
         ToLowercase(wordPointer);

@@ -35,7 +35,7 @@ Word* AddHash(FileCounted* file, char* word, int* errorCode) {
             return NULL;
         }
 
-        strcpy_s(aux->word, strlen(word) + 1, word);
+        strcpy(aux->word, word);
         file->capacity++;
         if(file->activeHash[0] == -1 && file->capacity == 1){
 			file->activeHash[0] = hash;
@@ -85,7 +85,7 @@ Word* ColissionHandlingHash(Word* current, char* word){
     aux->word = (char*)realloc(aux->word, (strlen(word) + 1) * sizeof(char));
     if (aux->word == NULL) return NULL;
 
-    strcpy_s(aux->word, strlen(word) + 1, word);
+    strcpy(aux->word, word);
     return aux;
 }
 
@@ -104,7 +104,7 @@ Word* FindWord(FileCounted* file, char* word) {
     if(strcmp(aux->word, word) == 0) return aux;
 
     while (aux->next != NULL) {
-        if (strcmp(aux->next, word) == 0) {
+        if (strcmp(aux->next->word, word) == 0) {
             return aux->next;
         }
         aux = aux->next;

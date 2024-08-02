@@ -9,6 +9,8 @@
 
 #include "WordFrequency.h"
 
+#include <stdbool.h>
+
 #define BUFFER 256
 
 FileCounted* LoadFile(const char* filename, bool* error);
