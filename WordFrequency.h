@@ -9,11 +9,13 @@
 
 typedef struct FileCounted{
     int numberOfWords;
+    int capacity;
+    int* activeHash;
     struct Word* words[];
 }FileCounted;
 
 typedef struct Word{
-    int WordASCII;
+    char* word;
     int frequencies;
     struct Word* next;
     
