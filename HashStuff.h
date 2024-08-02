@@ -9,12 +9,12 @@
 
 #include "WordFrequency.h"
 
-Word* FindWordHash(FileCounted* file, int ASCII);
+Word* AddHash(FileCounted* file, char* word, int* errorCode);
 
-Word* AddHash(FileCounted* file, int ASCII, int* errorCode);
+Word* ColissionHandlingHash(Word* current, char* word);
 
-int GenerateHash(int ASCII, int size);
+Word* FindWord(FileCounted* file, char* word);
 
-Word* ColissionHandlingHash(Word* current, int ASCII);
+int ComputeHash(char* word, int arraySize);
 
 #endif // HASH_STUFF_H
