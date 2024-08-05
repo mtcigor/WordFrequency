@@ -8,10 +8,10 @@
 #define WORD_FREQUENCY_H
 
 typedef struct FileCounted{
-    int numberOfWords;
-    int capacity;
-    int* activeHash;
-    struct Word* words[];
+    int numberOfWords; //Number of words counted
+    int capacity; //Amount filled in the array
+    int* activeHash; //Array with all hash numbers for the words array
+    struct Word* words[]; //Array of words
 }FileCounted;
 
 typedef struct Word{

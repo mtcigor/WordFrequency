@@ -22,7 +22,7 @@ Word* AddHash(FileCounted* file, char* word, int* errorCode) {
 
     // There is no word in the chosen hash
     if (aux == NULL) {
-        printf("Word not found\n\n");
+       // printf("Word not found\n\n");
         int hash = ComputeHash(word, file->numberOfWords);
         
         aux = file->words[hash];
@@ -54,13 +54,13 @@ Word* AddHash(FileCounted* file, char* word, int* errorCode) {
     }
     // The word already exists
     if (strcmp(aux->word, word) == 0) {
-        printf("Word found\n\n");
+        //printf("Word found\n\n");
         *errorCode = 1; // Already exists (best to increment)
         return aux;
     }
     // There is another word in the same hash, colliding
     if (aux->frequencies > 0 && strcmp(aux->word, word) != 0) {
-        printf("Collision\n\n");
+        //printf("Collision\n\n");
         Word* temp = ColissionHandlingHash(aux, word);
         if (temp == NULL) {
             *errorCode = 2; // Failed to add
@@ -91,7 +91,7 @@ Word* ColissionHandlingHash(Word* current, char* word){
 
 Word* FindWord(FileCounted* file, char* word) {
     int hash = ComputeHash(word, file->numberOfWords); //Convert to hash
-    printf("Hash: %d\n", hash);
+    //printf("Hash: %d\n", hash);
     if (hash < 0) return NULL;
 
     Word* aux = file->words[hash];

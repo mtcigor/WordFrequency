@@ -23,6 +23,7 @@ int main (){
     if(*error == true){
         printf("Failed to load the file\n");
     }
+    PrintWordFrequencies(file);
     FreeFileCouted(file);
     return 0;
 }

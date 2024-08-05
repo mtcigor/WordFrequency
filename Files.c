@@ -80,8 +80,8 @@ FileCounted* LoadFile(const char* filename, bool* error) {
         RemovePunctuation(wordPointer);
         ToLowercase(wordPointer);
 
-        printf("%zu\n", strlen(wordAux));
-        printf("%s\n", wordPointer);
+        //printf("%zu\n", strlen(wordAux));
+        //printf("%s\n", wordPointer);
         Word* word = AddOrIncrement(fileCounted, wordPointer);
         if (word == NULL) {
             *error = true;

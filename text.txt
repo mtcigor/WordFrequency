@@ -1,1 +1,32 @@
-In a small village nestled between rolling hills and a dense forest, there lived a young girl named Elara.
+Facebook and Instagram using the recent AI to improve de recommendations and drive engagement.
+Develop general recommendations models, content recommendations get better.
+Unified recommendation system that powers all the content including things like People You May Know cross all surfaces.
+
+AI to evolve the services for advertisers.
+Over the long term, advertisers will just be able to tell us a business objective and a budget and META is going. to do the rest for them. Mark Zuck thinks this is going to be a noticeably big deal.
+
+Meta started rolling out the assistance called Meta AI, with the goal of being the most used AI assistant by the end of the year (Very High expectation)
+
+Meta recently launched AI studio to let anyone create AIs to interact with across the apps, thinks creators are especially going to find quite valuable.
+AI studio to create AI agents that can channel them to chat with their community, answer people questions and create content and more. (So black mirror, will the fans actual like???)
+
+Business AI, still in alpha testing with more businesses, positive feedback, As every business as a website, social media, and email address in the future,
+they think every business is going to have an AI agent that their customers can interact with. (I am bullish on this)
+
+Llama family of foundation models, Lama 3.1 includes the first frontier-level open source model as well new and industry leading small and medium sized models, the 405B model has better cost performance relative to the leading closed models, and because it's open, it is immediately the best choice for fine-tuning to create the users own custom models on whatever size, Mark thinks we are going to look back at Llama 3.1 as an inflection point in the industry where open source AI started to become industry standard, just like Linux is. (Bullish on this)
+
+Meta needs access to the leading technology infrastructure and not get constrained by what competitors will let them do. If META want most robust ecosystem of tools, efficiency improvements, silicon optimizations and other integrations to develop around the Llama models, then it needs to be widely used by developers across the industry.
+
+Past success projects are the Open Compute project by Mark Zuck by having supply chains standardize on infra designs, open sourcing tools like PyTorch and React has led to real benefits for us from all the industry contributions.
+
+META is already working on Llama 4. They are aiming to be the most advanced in the industry next year. The amount of compute needed to train Llama 4 will be more 10x what used to train Llama 3. (Compare the current costs in the PP&E, to before AI and next two years with 3x multiple)
+
+Meta other long-term focus is Metaverse, Ai have pulled in the timelines for some of the metaverse products, they say they are well positions for because of the Reality Labs investments already made. (idk what to say here)
+
+Ray-Ban glasses continues to be a big hit sooner than expected (never heard, to check), AI demand is outpacing the ability to build them, meeting demand soon, Essilor Luxottica a partner working on with META and excited to team up with them to build future generation of AI glasses. (idk what to say here)
+
+Mark Zuck says, Quest 3 sales ate outpacing the expectations and is just not the best MR headset for the price but the best headset on the market and I quote him "Period." (some investors do not like it??)
+
+Annual Connect conference on September 25, exciting updates around all the AI and metaverse work (to tune in)
+
+Mark Zuck is planning to use the profits to build more that will pay off for the community and the investors for decades to come.
