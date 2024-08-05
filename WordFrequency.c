@@ -7,6 +7,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <malloc.h>
+#include <stdlib.h>
 
 #include "HashStuff.h"
 #include "WordFrequency.h"
@@ -98,4 +99,71 @@ void FreeFileCouted(FileCounted* file){
         }
         free(file);
     }
+}
+
+int compare_word_freq(const void* a, const void* b) {
+    return ((WordFreq*)b)->frequency - ((WordFreq*)a)->frequency;
+}
+
+void PrintWordFrequencies(FileCounted* file) {
+    if (file == NULL) {
+        printf("Error: File is NULL\n");
+        return;
+    }
+
+    // Count total unique words
+    int uniqueWords = 0;
+    for (int i = 0; i < file->numberOfWords; i++) {
+        Word* current = file->words[i];
+        while (current != NULL) {
+            if (current->word != NULL) {
+                uniqueWords++;
+            }
+            current = current->next;
+        }
+    }
+    
+    WordFreq* wordFreqArray = RankedFrequencies(file, uniqueWords);
+
+    // Print ranked results
+    printf("Ranked Word Frequencies:\n");
+    printf("------------------------\n");
+    for (int i = 0; i < uniqueWords; i++) {
+        printf("%d. %s: %d\n", i+1, wordFreqArray[i].word, wordFreqArray[i].frequency);
+    }
+
+    printf("------------------------\n");
+    printf("Total words: %d\n", file->numberOfWords);
+    printf("Unique words: %d\n", uniqueWords);
+
+    // Free the allocated memory
+    free(wordFreqArray);
+}
+
+WordFreq* RankedFrequencies(FileCounted* file, int uniqueWords){
+    WordFreq* wordFreqArray = malloc(uniqueWords * sizeof(WordFreq));
+    if (wordFreqArray == NULL) {
+        printf("Error: Memory allocation failed\n");
+        return NULL;
+    }
+
+    // Populate the array
+    int index = 0;
+    int totalWords = 0;
+    for (int i = 0; i < file->numberOfWords; i++) {
+        Word* current = file->words[i];
+        while (current != NULL) {
+            if (current->word != NULL) {
+                wordFreqArray[index].word = current->word;
+                wordFreqArray[index].frequency = current->frequencies;
+                totalWords += current->frequencies;
+                index++;
+            }
+            current = current->next;
+        }
+    }
+
+    // Sort the array
+    qsort(wordFreqArray, uniqueWords, sizeof(WordFreq), compare_word_freq);
+    return wordFreqArray;
 }

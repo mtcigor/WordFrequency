@@ -1,32 +1,10 @@
-Facebook and Instagram using the recent AI to improve de recommendations and drive engagement.
-Develop general recommendations models, content recommendations get better.
-Unified recommendation system that powers all the content including things like People You May Know cross all surfaces.
+NEW YORK, NY, June 28, 2024 – On Wednesday, June 26, the Federal Reserve notified the firm of the Stress Capital Buffer (“SCB”) for The Goldman Sachs Group, Inc. (NYSE: GS) of 6.4%, resulting in a Standardized Common Equity Tier 1 (“CET1”) ratio requirement of 13.9%, which will become effective on October 1, 2024.
 
-AI to evolve the services for advertisers.
-Over the long term, advertisers will just be able to tell us a business objective and a budget and META is going. to do the rest for them. Mark Zuck thinks this is going to be a noticeably big deal.
+“This increase does not seem to reflect the strategic evolution of our business and the continuous progress we’ve made to reduce our stress loss intensity, which the Federal Reserve had recognized in the last three tests. We will engage with our regulator to better understand their determinations,” said Chairman and CEO David Solomon. “We continue to be well-positioned to support our clients as they navigate the challenges of a dynamic market environment. Our capital management philosophy prioritizes investing in our world-class interconnected businesses at accretive returns while prudently navigating the economic, regulatory, and geopolitical landscape.”
 
-Meta started rolling out the assistance called Meta AI, with the goal of being the most used AI assistant by the end of the year (Very High expectation)
+The firm’s capital plan includes an increase in the common stock dividend from $2.75 to $3.00 per share beginning July 1, 2024, demonstrating confidence in the durability of our franchise. This increase is subject to approval by the firm’s Board of Directors at the customary third quarter meeting.
 
-Meta recently launched AI studio to let anyone create AIs to interact with across the apps, thinks creators are especially going to find quite valuable.
-AI studio to create AI agents that can channel them to chat with their community, answer people questions and create content and more. (So black mirror, will the fans actual like???)
+The Goldman Sachs Group, Inc. is a leading global financial institution that delivers a broad range of financial services to a large and diversified client base that includes corporations, financial institutions, governments and individuals. Founded in 1869, the firm is headquartered in New York and maintains offices in all major financial centers around the world.
 
-Business AI, still in alpha testing with more businesses, positive feedback, As every business as a website, social media, and email address in the future,
-they think every business is going to have an AI agent that their customers can interact with. (I am bullish on this)
-
-Llama family of foundation models, Lama 3.1 includes the first frontier-level open source model as well new and industry leading small and medium sized models, the 405B model has better cost performance relative to the leading closed models, and because it's open, it is immediately the best choice for fine-tuning to create the users own custom models on whatever size, Mark thinks we are going to look back at Llama 3.1 as an inflection point in the industry where open source AI started to become industry standard, just like Linux is. (Bullish on this)
-
-Meta needs access to the leading technology infrastructure and not get constrained by what competitors will let them do. If META want most robust ecosystem of tools, efficiency improvements, silicon optimizations and other integrations to develop around the Llama models, then it needs to be widely used by developers across the industry.
-
-Past success projects are the Open Compute project by Mark Zuck by having supply chains standardize on infra designs, open sourcing tools like PyTorch and React has led to real benefits for us from all the industry contributions.
-
-META is already working on Llama 4. They are aiming to be the most advanced in the industry next year. The amount of compute needed to train Llama 4 will be more 10x what used to train Llama 3. (Compare the current costs in the PP&E, to before AI and next two years with 3x multiple)
-
-Meta other long-term focus is Metaverse, Ai have pulled in the timelines for some of the metaverse products, they say they are well positions for because of the Reality Labs investments already made. (idk what to say here)
-
-Ray-Ban glasses continues to be a big hit sooner than expected (never heard, to check), AI demand is outpacing the ability to build them, meeting demand soon, Essilor Luxottica a partner working on with META and excited to team up with them to build future generation of AI glasses. (idk what to say here)
-
-Mark Zuck says, Quest 3 sales ate outpacing the expectations and is just not the best MR headset for the price but the best headset on the market and I quote him "Period." (some investors do not like it??)
-
-Annual Connect conference on September 25, exciting updates around all the AI and metaverse work (to tune in)
-
-Mark Zuck is planning to use the profits to build more that will pay off for the community and the investors for decades to come.
+Cautionary Note on Forward-Looking Statements
+This press release includes “forward-looking statements” within the meaning of the safe harbor provisions of the U.S. Private Securities Litigation Reform Act of 1995. Forward-looking statements are not historical facts, but instead represent only the firm’s beliefs regarding future events, many of which, by their nature, are inherently uncertain and outside the firm’s control. It is possible that the firm’s final Stress Capital Buffer and capital actions (including dividends) may differ, possibly materially, from those described in this press release. For a discussion of some of the risks and important factors that could affect the firm’s future results and financial condition, as well as its actual Stress Capital Buffer and capital actions, see “Risk Factors” in Part I, Item 1A of the firm’s Annual Report on Form 10-K for the year ended December 31, 2023.

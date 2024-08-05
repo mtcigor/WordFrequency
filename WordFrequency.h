@@ -21,6 +21,11 @@ typedef struct Word{
     
 }Word;
 
+typedef struct {
+    char* word;
+    int frequency;
+} WordFreq;
+
 Word* AddOrIncrement(FileCounted* file, char* word);
 
 FileCounted* InitializeCounter(int size);
@@ -30,5 +35,11 @@ Word* InitializeWord();
 void FreeWord(Word* word);
 
 void FreeFileCouted(FileCounted* file);
+
+int compare_word_freq(const void* a, const void* b);
+
+void PrintWordFrequencies(FileCounted* file);
+
+WordFreq* RankedFrequencies(FileCounted* file, int uniqueWords);
 
 #endif // WORD_FREQUENCY_H
